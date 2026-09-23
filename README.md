@@ -1,2 +1,48 @@
-# lualander-2d-physics-unity
-A physics-based 2D lunar lander arcade game developed in Unity (C#) using Universal 2D (URP). Features Rigidbody2D continuous thrust dynamics, vector dot-product landing angle evaluation, multi-tier landing pads, fuel consumption mechanics, and procedural Sprite Shape terrain generation.
+# LuaLander 2D: Physics-Driven Lunar Landing Simulator
+
+A physics-based 2D lunar landing simulation game built using **Unity Engine (Universal 2D / URP)** and **C#**. Designed with professional software engineering patterns, the project prioritizes strict decoupling of game logic from visual rendering, event-driven observer architectures, deterministic 2D vector kinematics, and mathematical landing evaluations.
+
+---
+
+### 🎮 Play & Download
+* **Playable Windows Build (.zip):** [Download from Google Drive](linkHere)
+*(Replace this link with your actual Google Drive or itch.io release link)*
+
+---
+
+### System Architecture & Logic-Visual Decoupling
+
+The architecture enforces strict separation between physical state calculation (`FixedUpdate`), audio/particle presentation, and UI presentation through C# events and delegates:
+
+```text
+                                +-----------------------------+
+                                |      GameInput Wrapper      |
+                                | (Keyboard, Gamepad, Touch)  |
+                                +--------------+--------------+
+                                               |
+                                               v
+                                +-----------------------------+
+                                |       Lander Core Logic     |
+                                | - Rigidbody2D Forces        |
+                                | - Fuel Consumption State    |
+                                | - Collision & Landing Math  |
+                                +--------------+--------------+
+                                               |
+                        +----------------------+----------------------+
+                        | (Invokes Event)                             | (Invokes Event)
+                        v                                             v
+        +-------------------------------+             +-------------------------------+
+        |        LanderVisuals          |             |          LanderAudio          |
+        | - Particle System Emissions   |             | - AudioSource State Machine   |
+        | - Explosion Instantiation     |             | - Pitch & Volume Modulators   |
+        +-------------------------------+             +-------------------------------+
+                        |                                             |
+                        +----------------------+----------------------+
+                                               |
+                                               v
+                                +-----------------------------+
+                                |   GameManager / UI Views    |
+                                | - Stats HUD (Speed/Fuel)    |
+                                | - Landing Summary Dialogs   |
+                                | - Cinemachine Camera Zoom   |
+                                +-----------------------------+
