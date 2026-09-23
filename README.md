@@ -3,7 +3,7 @@
 A physics-based 2D lunar landing simulation game built using **Unity Engine (Universal 2D / URP)** and **C#**. Designed with professional software engineering patterns, the project prioritizes strict decoupling of game logic from visual rendering, event-driven observer architectures, deterministic 2D vector kinematics, and mathematical landing evaluations.
 
 <p align="center">
-  <img src="LuaLander_ui.png" alt="LuaLander 2D Gameplay UI" width="100%"/>
+  <img src="LuaLander_ui.jpeg" alt="LuaLander 2D Gameplay UI" width="100%"/>
 </p>
 ---
 
